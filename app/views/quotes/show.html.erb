@@ -1,0 +1,33 @@
+<div class='centered'>
+    <div class='show'>
+        <p>
+          "
+          <%= @quote.quote %>
+          "
+        </p>
+
+        <% if @quote.author? %>
+            <p>
+              <strong>Author:</strong>
+              <%= @quote.author %>
+            </p>
+        <% end %>
+
+        <% if @quote.link? %>
+            <p>
+              <strong>Source:</strong>
+              <%= @quote.link %>
+            </p>
+        <% end %>
+
+        <p>
+          <strong>Category:</strong>
+          <%= @quote.category %>
+        </p>
+
+        <div class='link-container'>
+        <%= link_to 'Edit', edit_quote_path(@quote), class: "border-right"%>
+        <%= link_to 'Back to all', quotes_path %>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<%= form_with model: @quote, local: true do |form| %>
+ 
+  <% if @quote.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        To save this quote, please correct the following
+        <%= pluralize(@quote.errors.count, "error") %> 
+        :
+      </h2>
+      <ul>
+        <% @quote.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='row'>
+    <%= form.label :quote %>
+    <%= form.text_area :quote %>
+  </div>
+ 
+  <div class='row'>
+    <%= form.label :author %>
+    <%= form.text_field :author %>
+  </div>
+
+  <div class='row'>
+    <%= form.label :link %>
+    <%= form.url_field :link %>
+  </div>
+
+  <div class='row'>
+    <%= form.label :category %>
+  </div>
+  <div class='row category-holder'>
+    <div class='category-option'>
+      <%= form.radio_button(:category, :everyday)%>
+      <p>Everyday</p>
+    </div>
+    <div class='category-option'>
+      <%= form.radio_button(:category, :religion)%>
+      <p>Religion</p>
+    </div>
+    <div class='category-option'>
+      <%= form.radio_button(:category, :travel)%>
+      <p>Travel</p>
+    </div>
+    <div class='category-option'>
+      <%= form.radio_button(:category, :career)%>
+      <p>Career</p>
+    </div>
+  </div>
+ 
+  <div class='row submit'>
+    <%= form.submit %>
+  </div>
+
+<% end %>
+<%= link_to 'Back to all', quotes_path %>

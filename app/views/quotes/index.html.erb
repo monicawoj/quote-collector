@@ -1,0 +1,27 @@
+<div class='index'>
+    <h1>Quotes for Life, Life in Quotes</h1>
+
+    <div class='link-container'>
+        <%= link_to 'Quote of the Day', root_path, class: "border-right" %>
+        <%= link_to 'Add quote', new_quote_path %>
+    </div>
+
+    <div class='overflow'>
+    <table>
+      <tr>
+        <th colspan="5"></th>
+      </tr>
+
+      <% @quotes.each do |quote| %>
+        <tr>
+          <td class='large'>"<%= quote.quote %>"</td>
+          <td class='italic'> - <%= quote.author %></td>
+          <td class='border-right'><%= link_to 'Edit', edit_quote_path(quote) %></td>
+          <td><%= link_to 'Delete', quote_path(quote),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </table>
+    </div>
+</div>

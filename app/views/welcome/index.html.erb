@@ -1,0 +1,18 @@
+<div class='welcome'>
+
+    <% @focus_quote = Quote.last %>
+
+    <h1 class="focus_quote">
+      <%= @focus_quote.quote %>
+      <% if @focus_quote.author? %>
+        <span class="italic">
+        - <%= @focus_quote.author %>
+        </span>
+       <% end %>
+    </h1>
+
+    <div class='link-container'>
+        <%= link_to 'Show All', controller: 'quotes', class: 'border-right' %>
+        <%= link_to 'Add quote', new_quote_path %>
+    </div>
+</div>
