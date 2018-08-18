@@ -1,10 +1,10 @@
 <%= form_with model: @quote, local: true do |form| %>
- 
+
   <% if @quote.errors.any? %>
     <div id="error_explanation">
       <h2>
         To save this quote, please correct the following
-        <%= pluralize(@quote.errors.count, "error") %> 
+        <%= pluralize(@quote.errors.count, "error") %>
         :
       </h2>
       <ul>
@@ -19,7 +19,7 @@
     <%= form.label :quote %>
     <%= form.text_area :quote %>
   </div>
- 
+
   <div class='row'>
     <%= form.label :author %>
     <%= form.text_field :author %>
@@ -51,7 +51,7 @@
       <p>Career</p>
     </div>
   </div>
- 
+
   <div class='row submit'>
     <%= form.submit %>
   </div>
